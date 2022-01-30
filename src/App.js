@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+export default function App() {
+  // const names = ["nemo", "rock", "jack"];
+  const users = [
+    {
+      name: "nemo",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXxXgL-IJd-HkjQKIU6RcawDSm8YO11f0Ww&usqp=CAU"
+    },
+    {
+      name: "jack",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3C1TqfEFZAIzWESqgbMD8ud96aPz1PB6_hQ&usqp=CAU"
+    },
+    {
+      name: "rock",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5svSIP5sxJ55Pav_GYjdd1LJo9IWHdnErLw&usqp=CAU"
+    }
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1>{name}</h1>
+      <h2>its awesome</h2>
+      <Hai
+        name="raj"
+        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXxXgL-IJd-HkjQKIU6RcawDSm8YO11f0Ww&usqp=CAU"
+      />
+      <Hai
+        name="jack"
+        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3C1TqfEFZAIzWESqgbMD8ud96aPz1PB6_hQ&usqp=CAU"
+      />
+      <Hai
+        name="rock"
+        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5svSIP5sxJ55Pav_GYjdd1LJo9IWHdnErLw&usqp=CAU"
+      /> */}
+      {users.map((usr) => (
+        <Hai name={usr.name} image={usr.image} />
+      ))}
     </div>
   );
 }
 
-export default App;
+// function New(){
+//   return(
+//     <div>
+//       <h1>haii{name} 🤖🐱‍🏍</h1>
+//       </div>
+//   )
+// }
+
+function Hai({ name, image }) {
+  return (
+    <div className="new">
+      <img src={image} alt="not supported" />
+      <h1>haiiii {name}👻👻🤖</h1>
+    </div>
+  );
+}
+

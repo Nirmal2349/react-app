@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.new {
+  color: red;
+  font-family: "Comforter", cursive;
+}
