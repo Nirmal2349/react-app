@@ -88,6 +88,7 @@ function Counter(){
       <button onClick={()=>setLike(like+1)}>👍{like}</button>
       <button onClick={()=>setdisLike(dislike+1)}>👎{dislike}</button>
       
+      
       </div>
   )
 }
