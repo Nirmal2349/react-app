@@ -5,21 +5,6 @@ import "./App.css";
 export default function App() {
   // const names = ["nemo", "rock", "jack"];
   const users = [
-    // {
-    //   name: "nemo",
-    //   image:
-    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXxXgL-IJd-HkjQKIU6RcawDSm8YO11f0Ww&usqp=CAU"
-    // },
-    // {
-    //   name: "jack",
-    //   image:
-    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3C1TqfEFZAIzWESqgbMD8ud96aPz1PB6_hQ&usqp=CAU"
-    // },
-    // {
-    //   name: "rock",
-    //   image:
-    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5svSIP5sxJ55Pav_GYjdd1LJo9IWHdnErLw&usqp=CAU"
-    // }
     {
       name:"Black clover",
       summary:"Asta and Yuno were abandoned together at the same church and have been inseparable since. As children, they promised that they would compete against each other to see who would become the next Emperor Magus.",
@@ -47,41 +32,51 @@ export default function App() {
       image:"https://i.pinimg.com/originals/6b/4c/53/6b4c53c16384d6e7fb8e8526a13a0913.gif"
     }
   ];
+  
+  
+
+  const[name,setName]=useState("")
+  const[poster,setPoster]=useState("")
+  const[rating,setRating]=useState("")
+  const[summary,setSummary]=useState("")
 
   return (
     <div className="App">
-      {/* <h1>{name}</h1>
-      <h2>its awesome</h2>
-      <Hai
-        name="raj"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXxXgL-IJd-HkjQKIU6RcawDSm8YO11f0Ww&usqp=CAU"
-      />
-      <Hai
-        name="jack"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3C1TqfEFZAIzWESqgbMD8ud96aPz1PB6_hQ&usqp=CAU"
-      />
-      <Hai
-        name="rock"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5svSIP5sxJ55Pav_GYjdd1LJo9IWHdnErLw&usqp=CAU"
-      /> */}
-      <div className="movie-list">
-      {/* {users.map((usr) => (
-        <Movie name={usr.name} image={usr.image} summary={usr.summary} rating={usr.rating}/>
-      ))} */}
+      <div className="add-movie-form">
+        <input type="text" placeholder="Name"
+         onChange={(event)=>setName(event.target.value)}/>
+
+        <input type="text" placeholder="Poster" 
+        onChange={(event)=>setPoster(event.target.value)}/>
+        
+        <input type="text" placeholder="Rating" 
+        onChange={(event)=>setRating(event.target.value)}/>
+
+        <input type="text" placeholder="Summary" 
+        onChange={(event)=>setSummary(event.target.value)}/>
+
+        
+
+        <button onClick={()=>{
+          const newMovie={
+            name:name,
+            poster:poster,
+            rating:rating,
+            summary:summary,
+          };
+          setMovieList([...movieList,newMovie])
+        }
+        }>addmovie</button>
       </div>
-      {/* <Counter/> */}
+   
+      <Counter/>
       <AddColor/>
+      <div className="movie-list">
+        </div>
     </div>
   );
 }
 
-// function New(){
-//   return(
-//     <div>
-//       <h1>haii{name} 🤖🐱‍🏍</h1>
-//       </div>
-//   )
-// }
 
 function Movie({ name, image, summary, rating}) {
   const styles = {
