@@ -11,6 +11,7 @@ import CardContent from '@mui/material/CardContent';
 
 
 import "./App.css";
+import { AddColor } from "./AddColor";
 
 export default function App() {
   const Initial_Movie_List = [
@@ -105,7 +106,7 @@ export default function App() {
         ))}
 
       </div>
-      <AddColor />
+      {/* <AddColor /> */}
       {/* <Counter /> */}
     </div>
 
@@ -114,44 +115,6 @@ export default function App() {
 
 
 
-function AddColor() {
-  const [color, setColor] = useState("pink");
-  const styles = {
-    background: color,
-  };
-  const [colorList, setColorList] = useState(["crimson", "red", "blue", "orange"]);
-  return (
-    <div>
-      {/* <input 
-      value={color}
-        style={styles}
-        onChange={(event) => setColor(event.target.value)} placeholder="Enter a color" /> */}
-
-      <TextField value={color}
-        style={styles}
-        onChange={(event) => setColor(event.target.value)}
-        label="Enter a color"
-        variant="outlined" />
-
-      {/* <button ></button> */}
-      <Button onClick={() => setColorList([...colorList, color])} variant="contained">Add color</Button>
-      {colorList.map((clr) => (
-        <ColorBox color={clr} />
-      ))}
-    </div>
-  )
-};
-
-function ColorBox({ color }) {
-  const styles = {
-    backgroundColor: color,
-    height: "25px",
-    width: "200px",
-    marginTop: "10px",
-  };
-  return <div style={styles}></div>;
-};
-
 function Movie({ name, poster, summary, rating }) {
   const styles = {
     color: rating > 8 ? "green" : "red",
@@ -159,9 +122,9 @@ function Movie({ name, poster, summary, rating }) {
 
   const [show, setShow] = useState(true);
 
-  const summaryStyles = {
-    display: show ? "block" : "none",
-  }
+  // const summaryStyles = {
+  //   display: show ? "block" : "none",
+  // }
   return (
     // <div className="new">
     <Card className="movie-container">
