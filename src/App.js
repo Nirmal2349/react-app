@@ -29,7 +29,7 @@ export default function App() {
       name: "Haikyuu",
       summary: "Based on Haruichi Furudate's popular shounen manga of the same name, Haikyuu!! is an exhilarating and emotional sports comedy following two determined athletes as they attempt to patch a heated rivalry in order",
       rating: "9/10",
-      poster: "https://c.tenor.com/1l1pf5sZLWUAAAAC/haikyuu-jump.gif"
+      poster: "https://lh3.googleusercontent.com/proxy/lF5qr6j1ICToBcwRoAP9nXGiMpjX-2xR79cwp9LDdV3pCq5ApIDapfTmZ6pr-aD5Y2HacoBlD-GhTL6bAD1gHznUvIprDuOSw4KXAWv4vTP6eZccqynqYSs2mA=s0-d"
     }, {
       name: "Demon slayer",
       summary: "A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister",
@@ -126,7 +126,7 @@ function Movie({ name, poster, summary, rating }) {
   //   display: show ? "block" : "none",
   // }
   return (
-    // <div className="new">
+    <div className="new">
     <Card className="movie-container">
       <img src={poster} alt="not supported" className="movie-poster" />
       <CardContent>
@@ -147,7 +147,7 @@ function Movie({ name, poster, summary, rating }) {
       <Counter />
       </CardActions>
     </Card>
-    // </div>
+    </div>
   );
 };
 
