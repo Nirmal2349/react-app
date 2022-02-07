@@ -112,3 +112,9 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 }
+
+.not-found{
+ text-align: center;
+ font-size: 48px;
+ margin: 0; 
+}
