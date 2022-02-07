@@ -9,7 +9,9 @@ export function MovieList({ movieList }) {
           name={name}
           poster={poster}
           rating={rating}
-          summary={summary} />
+          summary={summary} 
+          deleteButton = {<button>Delete Me</button>}
+          />
       ))}
 
     </div>

@@ -7,6 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { Counter } from "./Counter";
 
+
 export function Movie({ name, poster, summary, rating }) {
   const styles = {
     color: rating > 8 ? "red" : "green"
@@ -36,7 +37,8 @@ export function Movie({ name, poster, summary, rating }) {
           {show ? <p className="movie-summary">{summary}</p> : ""}
         </CardContent>
         <CardActions>
-          <Counter />
+          <Counter/> {deleteButton}
+           
         </CardActions>
       </Card>
     </div>
