@@ -19,10 +19,8 @@ export function MovieList({ movieList, setMovieList }) {
 
               console.log(index)
 
-              const copyMovieList = { ...movieList };
-
+              const copyMovieList = [...movieList];
               copyMovieList.splice(index, 1);
-
               setMovieList(copyMovieList);
 
             }}
