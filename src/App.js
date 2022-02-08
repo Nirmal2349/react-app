@@ -90,7 +90,7 @@ export default function App() {
           
          
           </div>
-        <MovieList movieList={movieList}/>
+        <MovieList movieList={movieList} setMovieList={setMovieList} />
         </Route>
         <Route path="/color-game">
           <AddColor />
