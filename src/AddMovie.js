@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export function AddMovie({ movieList, setMovieList }) {
 
@@ -8,6 +9,8 @@ export function AddMovie({ movieList, setMovieList }) {
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
+  const [trailer, setTrailer] = useState("");
+  const history = useHistory()
 
   return (
     <div className="add-movie-form">
@@ -33,6 +36,9 @@ export function AddMovie({ movieList, setMovieList }) {
       <TextField onChange={(event) => setSummary(event.target.value)}
         label="Summary" />
 
+        <TextField onChange={(event) => setTrailer(event.target.value)}
+        label="trailer" />
+
       {/* <input type="text" placeholder="Summary"
           /> */}
 
@@ -43,8 +49,10 @@ export function AddMovie({ movieList, setMovieList }) {
           poster: poster,
           rating: rating,
           summary: summary,
+          trailer: trailer,
         };
         setMovieList([...movieList, newMovie]);
+        history.push("/movies");
       }}
         variant="contained"> Addmovie</Button>
 

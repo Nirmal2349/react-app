@@ -32,6 +32,9 @@ export default function App() {
           <Link to="/TicTacToe">TicTacToe-game</Link>
         </li>
         <li>
+          <Link to="/movies/add">Add Movies</Link>
+        </li>
+        <li>
           <Link to="/">Home</Link>
         </li>
       </ul>
