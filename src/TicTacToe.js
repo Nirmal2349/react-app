@@ -75,7 +75,8 @@ export function TicTacToe() {
         ))}
 
       </div>
-      {winner ? <h2>Winner is :{winner}</h2> : ""}
+      {winner ? <h2>Winner is :{winner}</h2> : ""}<br/>
+
 
       <button onClick={() => {
         setBoard([null, null, null, null, null, null, null, null, null,]);

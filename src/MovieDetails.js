@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import Button from '@mui/material/Button';
+import ArrowBackIosSharpIcon from '@mui/icons-material/ArrowBackIosSharp';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 export function MovieDetails({ movieList }) {
   { /* <we always use same name in id> */ }
   const { id } = useParams();
   const movie = movieList[id];
+  const history = useHistory()
 
   // const movie = {
   //   name: "Naruto",
@@ -25,6 +30,13 @@ export function MovieDetails({ movieList }) {
           <p className="movie-rating">⭐{movie.rating}</p>
         </div>
         <p className="movie-summary">{movie.summary}</p>
+      <Button variant="contained" 
+      onClick={() => history.goBack()}
+      startIcon={<ArrowBackIosSharpIcon/>}
+      
+      >
+  Back
+</Button>
       </div>
     </div>
 
