@@ -6,16 +6,20 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { Counter } from "./Counter";
+import InfoIcon from '@mui/icons-material/Info';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
- 
 
 
-export function Movie({ name, poster, summary, rating, deleteButton}) {
+
+export function Movie({ name, poster, summary, rating, deleteButton, id}) {
   const styles = {
     color: rating > 8.5 ? "red" : "green"
   };
 
   const [show, setShow] = useState(true);
+
+  const history = useHistory()
 
   // const summaryStyles = {
   //   display: show ? "block" : "none",
@@ -27,9 +31,15 @@ export function Movie({ name, poster, summary, rating, deleteButton}) {
         <CardContent>
           <div className="movie-specs">
             <h1 className="movie-name">{name}
+
               <IconButton onClick={() => setShow(!show)} aria-label="toggle descreption">
                 {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
               </IconButton>
+
+              <IconButton color="primary" onClick={() => history.push(`/movies/${id}`)} aria-label="toggle descreption">
+                <InfoIcon/>
+              </IconButton>
+
             </h1>
             <p style={styles} className="movie-rating">⭐{rating}</p>
           </div>
@@ -39,10 +49,10 @@ export function Movie({ name, poster, summary, rating, deleteButton}) {
           {show ? <p className="movie-summary">{summary}</p> : ""}
         </CardContent>
         <CardActions>
-          <Counter/>  {deleteButton}
-           
+          <Counter /> {deleteButton}
+
         </CardActions>
-       
+
       </Card>
     </div>
   );
