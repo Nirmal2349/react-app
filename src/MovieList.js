@@ -32,7 +32,7 @@ export function MovieList({ movieList, setMovieList }) {
           }
           editButton={
             <IconButton
-              onclick={() => history.push(`/movies/edit/${index}`)}
+              onClick={() => history.push(`/movies/edit/${index}`)}
               aria-label="edit"
               color="secondary"
             >

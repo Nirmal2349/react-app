@@ -9,15 +9,10 @@ import { Initial_Movie_List } from "./Initial_Movie_List";
 import { MovieList } from "./MovieList";
 import { MovieDetails } from "./MovieDetails";
 import { AddMovie } from "./AddMovie";
-
+import { EditMovie } from "./EditMovie";
 
 export default function App() {
-  
-
-  const [movieList, setMovieList] = useState(Initial_Movie_List)
-
-
-
+  const [movieList, setMovieList] = useState(Initial_Movie_List);
 
   return (
     <div className="App">
@@ -43,19 +38,20 @@ export default function App() {
           <Home />
         </Route>
         <Route path="/flims">
-          <Redirect to="/movies"/>
+          <Redirect to="/movies" />
         </Route>
-         <Route path="/movies/add">
-         <AddMovie movieList={movieList} setMovieList={setMovieList} />        
-          </Route>
-         <Route path="/movies/:id">
-         <MovieDetails movieList={movieList} />        
-          </Route>
+        <Route path="/movies/add">
+          <AddMovie movieList={movieList} setMovieList={setMovieList} />
+        </Route>
+        <Route path="/movies/edit/:id">
+          <EditMovie movieList={movieList} setMovieList={setMovieList} />
+        </Route>
+        <Route path="/movies/:id">
+          <MovieDetails movieList={movieList} />
+        </Route>
 
         <Route path="/movies">
-
-        
-        <MovieList movieList={movieList} setMovieList={setMovieList} />
+          <MovieList movieList={movieList} setMovieList={setMovieList} />
         </Route>
         <Route path="/color-game">
           <AddColor />
@@ -68,10 +64,5 @@ export default function App() {
         </Route>
       </Switch>
     </div>
-
   );
-};
-
-
-
-
+}
