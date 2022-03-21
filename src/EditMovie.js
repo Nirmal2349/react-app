@@ -63,14 +63,17 @@ export function EditMovie({ movieList, setMovieList }) {
       {/* <button ></button> */}
       <Button
         onClick={() => {
-          const newMovie = {
+          const UpdatedMovie = {
             name: name,
             poster: poster,
             rating: rating,
             summary: summary,
             trailer: trailer,
           };
-          setMovieList([...movieList, newMovie]);
+          const copyMovieList = [...movieList];
+          copyMovieList[id] = UpdatedMovie;
+          setMovieList(copyMovieList);
+          // setMovieList([...movieList, newMovie]);
           history.push("/movies");
         }}
         variant="contained"
