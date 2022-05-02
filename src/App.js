@@ -10,29 +10,39 @@ import { MovieList } from "./MovieList";
 import { MovieDetails } from "./MovieDetails";
 import { AddMovie } from "./AddMovie";
 import { EditMovie } from "./EditMovie";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 export default function App() {
   const [movieList, setMovieList] = useState(Initial_Movie_List);
 
+  const history = useHistory();
   return (
     <div className="App">
-      <ul>
-        <li>
-          <Link to="/movies">Movies</Link>
-        </li>
-        <li>
-          <Link to="/color-game">colour-game</Link>
-        </li>
-        <li>
-          <Link to="/TicTacToe">TicTacToe-game</Link>
-        </li>
-        <li>
-          <Link to="/movies/add">Add Movies</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
+
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" onClick={() => history.push("/")}>
+            Home
+          </Button>
+          <Button color="inherit" onClick={() => history.push("/movies")}>
+            Movies
+          </Button>
+          <Button color="inherit" onClick={() => history.push("/color-game")}>
+            Colour-game
+          </Button>
+          <Button color="inherit" onClick={() => history.push("/TicTacToe")}>
+            TicTacToe-game
+          </Button>
+          <Button color="inherit" onClick={() => history.push("/movies/add")}>
+            Add Movies
+          </Button>
+        </Toolbar>
+      </AppBar>
+
       <Switch>
         <Route exact path="/">
           <Home />
