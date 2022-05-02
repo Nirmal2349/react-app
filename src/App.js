@@ -42,7 +42,7 @@ export default function App() {
           </Button>
         </Toolbar>
       </AppBar>
-
+      <div className="route-container">
       <Switch>
         <Route exact path="/">
           <Home />
@@ -73,6 +73,7 @@ export default function App() {
           <Notfound />
         </Route>
       </Switch>
+      </div>
     </div>
   );
 }
