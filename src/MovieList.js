@@ -26,6 +26,7 @@ export function MovieList({ movieList, setMovieList }) {
               }}
               aria-label="delete button"
               color="error"
+              style={{marginLeft:"auto"}}
             >
               <DeleteIcon />
             </IconButton>
