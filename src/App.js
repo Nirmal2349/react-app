@@ -15,21 +15,21 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Paper from '@mui/material/Paper';
+import Paper from "@mui/material/Paper";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 export default function App() {
   const [movieList, setMovieList] = useState(Initial_Movie_List);
 
-const history = useHistory();
+  const history = useHistory();
 
-const [mode,setMode] = useState("dark")
-const theme = createTheme({
-  palette: {
-    mode: mode,
-  },
-});
+  const [mode, setMode] = useState("dark");
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,13 +63,9 @@ const theme = createTheme({
               </Button>
               <Button
                 color="inherit"
-                style={{marginLeft:"auto"}}
+                style={{ marginLeft: "auto" }}
                 startIcon={
-                  mode === "dark" ? (
-                    <Brightness7Icon />
-                  ) : (
-                    <Brightness4Icon />
-                  )
+                  mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />
                 }
                 onClick={() => setMode(mode === "light" ? "dark" : "light")}
               >
@@ -92,12 +88,15 @@ const theme = createTheme({
                 <EditMovie movieList={movieList} setMovieList={setMovieList} />
               </Route>
               <Route path="/movies/:id">
-                <MovieDetails movieList={movieList} />
+                <MovieDetails />
+                {/* movieList={movieList} */}
               </Route>
 
               <Route path="/movies">
-                <MovieList movieList={movieList} setMovieList={setMovieList} />
+                <MovieList />
+                {/* // movieList={movieList} setMovieList={setMovieList} */}
               </Route>
+
               <Route path="/color-game">
                 <AddColor />
               </Route>
@@ -114,3 +113,8 @@ const theme = createTheme({
     </ThemeProvider>
   );
 }
+
+// fetch("https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies")
+//   .then((data) => data.json())
+//   .then((movi) => console.log(movi));
+

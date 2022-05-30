@@ -1,13 +1,12 @@
 import { useState } from "react";
-import useWindowSize from 'react-use/lib/useWindowSize';
-import Confetti from 'react-confetti';
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
 import { GameBox } from "./GameBox";
 
 export function TicTacToe() {
-
   const [board, setBoard] =
     // useState[0,1,2,3,4,5,6,7,8]
-    useState([null, null, null, null, null, null, null, null, null,]);
+    useState([null, null, null, null, null, null, null, null, null]);
 
   const decideWinner = (board) => {
     const lines = [
@@ -23,13 +22,11 @@ export function TicTacToe() {
 
     // if winning condition present in board then we have a winner
     for (let i = 0; i < lines.length; i++) {
-
       const [a, b, c] = lines[i];
 
-      console.log(a, b, c);
+      // console.log(a, b, c);
       if (board[a] !== null && board[a] === board[b] && board[b] === board[c]) {
-
-        console.log("winner is", board[a]);
+        // console.log("winner is", board[a]);
         return board[a];
       }
       // else{
@@ -37,19 +34,17 @@ export function TicTacToe() {
       // }
     }
     return null;
-
   };
   const winner = decideWinner(board);
   const [isXturn, setIsXTurn] = useState(true);
 
   const handleClick = (index) => {
-
     // copy the board and replace with "x" in the clicked gamebox
     // update only untouched boxes  &  untill no winner
     if (winner === null && board[index] === null) {
       const boardCopy = [...board];
 
-      console.log(boardCopy, index);
+      // console.log(boardCopy, index);
 
       boardCopy[index] = isXturn ? "X" : "O";
 
@@ -57,7 +52,6 @@ export function TicTacToe() {
 
       setIsXTurn(!isXturn);
     }
-
   };
 
   const { width, height } = useWindowSize();
@@ -70,19 +64,21 @@ export function TicTacToe() {
         {/* we use map for the looping */}
         {/* parent componentt => child component (data has to be passed) => props */}
         {board.map((val, index) => (
-          <GameBox val={val}
-            onPlayerClick={() => handleClick(index)} />
+          <GameBox val={val} onPlayerClick={() => handleClick(index)} />
         ))}
-
       </div>
-      {winner ? <h2>Winner is :{winner}</h2> : ""}<br/>
+      {winner ? <h2>Winner is :{winner}</h2> : ""}
+      <br />
 
-
-      <button onClick={() => {
-        setBoard([null, null, null, null, null, null, null, null, null,]);
-        setIsXTurn(true);
-      }}
-      > Restart </button>
+      <button
+        onClick={() => {
+          setBoard([null, null, null, null, null, null, null, null, null]);
+          setIsXTurn(true);
+        }}
+      >
+        {" "}
+        Restart{" "}
+      </button>
     </div>
   );
 }
