@@ -14,8 +14,10 @@ export function MovieDetails() {
 
   useEffect(() => {
     fetch(
-      `https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies/${id}`
-    )
+      `https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies/${id}`,
+      {
+        method:"GET",
+      })
       .then((data) => data.json())
       .then((movii) => setMovie(movii));
   }, []);

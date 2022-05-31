@@ -5,19 +5,34 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
 
+const API = "https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi";
+
 export function MovieList() {
   const history = useHistory();
 
   const [movieList, setMovieList] = useState([]);
 
-  useEffect(() => {
+  const getMovies = () => {
     fetch(
-      "https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies"
+      `${API}/movies`,
+      {
+        method: "GET",
+      } //promise
     )
-      .then((data) => data.json())
-      .then((movi) => setMovieList(movi))
-      // .trycatch((err) => console.log(err));
+      .then((data) => data.json()) //response object =convert> json data
+      .then((movi) => setMovieList(movi));
+  };
+
+  useEffect(() => {
+    getMovies();
   }, []);
+
+  const deleteMovie = (id) => {
+    fetch(`${API}/movies/${id}`, {
+      method: "DELETE",
+    }).then(() => getMovies());
+  };
+
   return (
     <div className="movie-list">
       {movieList.map(({ name, poster, rating, summary, id }, index) => (
@@ -30,12 +45,15 @@ export function MovieList() {
           deleteButton={
             <IconButton
               onClick={() => {
-                console.log(index);
-
-                const copyMovieList = [...movieList];
-                copyMovieList.splice(index, 1);
-                setMovieList(copyMovieList);
+                deleteMovie(id);
               }}
+              // delete data from local
+
+              // console.log(index);
+              //   const copyMovieList = [...movieList];
+              //   copyMovieList.splice(index, 1);
+              //   setMovieList(copyMovieList);
+
               aria-label="delete button"
               color="error"
               style={{ marginLeft: "auto" }}
