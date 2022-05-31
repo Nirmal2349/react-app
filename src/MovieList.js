@@ -15,7 +15,8 @@ export function MovieList() {
       "https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies"
     )
       .then((data) => data.json())
-      .then((movi) => setMovieList(movi));
+      .then((movi) => setMovieList(movi))
+      // .trycatch((err) => console.log(err));
   }, []);
   return (
     <div className="movie-list">

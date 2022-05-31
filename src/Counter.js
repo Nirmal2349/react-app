@@ -8,11 +8,18 @@ import Badge from '@mui/material/Badge';
 export function Counter() {
   const [like, setLike] = useState(0);
   const [disLike, setdisLike] = useState(0);
+
+const incrementlike = () => setLike(like + 1);
+const incrementdislike = () => setdisLike(disLike + 1);
   return (
     <div className="counter-container">
-
       {/* <button >👍{like}</button> */}
-      <IconButton aria-label="like button" className="like-dislike" onClick={() => setLike(like + 1)} color="primary">
+      <IconButton
+        aria-label="like button"
+        className="like-dislike"
+        onClick={incrementlike}
+        color="primary"
+      >
         <Badge badgeContent={like} color="primary">
           👍
         </Badge>
@@ -21,7 +28,12 @@ export function Counter() {
               variant="contained"></Button> */}
 
       {/* <button >{dislike}</button> */}
-      <IconButton aria-label="dislike button" className="like-dislike" onClick={() => setdisLike(disLike + 1)} color="error">
+      <IconButton
+        aria-label="dislike button"
+        className="like-dislike"
+        onClick={incrementdislike}
+        color="error"
+      >
         <Badge badgeContent={disLike} color="error">
           👎
         </Badge>
