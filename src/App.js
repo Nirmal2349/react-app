@@ -82,7 +82,8 @@ export default function App() {
                 <Redirect to="/movies" />
               </Route>
               <Route path="/movies/add">
-                <AddMovie movieList={movieList} setMovieList={setMovieList} />
+                <AddMovie />
+                {/* movieList={movieList} setMovieList={setMovieList} */}
               </Route>
               <Route path="/movies/edit/:id">
                 <EditMovie movieList={movieList} setMovieList={setMovieList} />

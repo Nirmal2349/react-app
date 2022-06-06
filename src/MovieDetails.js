@@ -3,9 +3,10 @@ import Button from "@mui/material/Button";
 import ArrowBackIosSharpIcon from "@mui/icons-material/ArrowBackIosSharp";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
+import { API } from "./global";
 
 export function MovieDetails() {
-  // movieList
+  // movieDetails
   {
     /* <we always use same name in id> */
   }
@@ -13,11 +14,9 @@ export function MovieDetails() {
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    fetch(
-      `https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi/movies/${id}`,
-      {
-        method:"GET",
-      })
+    fetch(`${API}/movies/${id}`, {
+      method: "GET",
+    })
       .then((data) => data.json())
       .then((movii) => setMovie(movii));
   }, []);

@@ -4,8 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
-
-const API = "https://my-json-server.typicode.com/Nirmal2349/alternate-mockapi";
+import { API } from "./global";
 
 export function MovieList() {
   const history = useHistory();
@@ -27,6 +26,8 @@ export function MovieList() {
     getMovies();
   }, []);
 
+  // delete the movie => refresh the data
+  
   const deleteMovie = (id) => {
     fetch(`${API}/movies/${id}`, {
       method: "DELETE",
