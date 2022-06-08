@@ -86,7 +86,8 @@ export default function App() {
                 {/* movieList={movieList} setMovieList={setMovieList} */}
               </Route>
               <Route path="/movies/edit/:id">
-                <EditMovie movieList={movieList} setMovieList={setMovieList} />
+                <EditMovie />
+                {/* movieList={movieList} setMovieList={setMovieList} */}
               </Route>
               <Route path="/movies/:id">
                 <MovieDetails />

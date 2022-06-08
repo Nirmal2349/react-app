@@ -18,7 +18,8 @@ export function MovieDetails() {
       method: "GET",
     })
       .then((data) => data.json())
-      .then((movii) => setMovie(movii));
+      .then((movii) => setMovie(movii))
+      .catch((err)=> console.log(err));
   }, []);
   // const movie = {};
   // movieList[id]

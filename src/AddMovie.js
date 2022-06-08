@@ -14,6 +14,28 @@ export function AddMovie() {
   const [trailer, setTrailer] = useState("");
   const history = useHistory();
 
+  const addMovie = () => {
+    const newMovie = {
+      name: name,
+      poster: poster,
+      rating: rating,
+      summary: summary,
+      trailer: trailer,
+    };
+    // method must be post
+    // body => data should be in json format(json data object)
+    // headers => we inform its a json data
+    fetch(`${API}/movies/`, {
+      method: "POST",
+      body: JSON.stringify(newMovie),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // after post is complete move to movie => /movies
+    }).then(() => history.push("/movies"));
+
+    // setMovieList([...movieList, newMovie]);
+  }
   return (
     <div className="add-movie-form">
       <TextField
@@ -54,35 +76,9 @@ export function AddMovie() {
           /> */}
 
       {/* <button ></button> */}
-      <Button
-        onClick={() => {
-          const newMovie = {
-            name: name,
-            poster: poster,
-            rating: rating,
-            summary: summary,
-            trailer: trailer,
-          };
-
-          // method must be post
-          // body => data should be in json format(json data object)
-          // headers => we inform its a json data
-          fetch(`${API}/movies/`, {
-            method: "POST",
-            body: JSON.stringify(newMovie),
-            headers: {
-              "Content-Type": "application/json",
-            },
-            // after post is complete move to movie list
-          }).then(() => history.push("/movies"));
-
-          // setMovieList([...movieList, newMovie]);
-        }}
-        variant="contained"
-      >
-        {/* {" "} */}
+      <Button onClick={() => addMovie()} variant="contained">
         Addmovie
       </Button>
     </div>
-  );
+  )
 }
